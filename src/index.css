@@ -1,42 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Professional Security Operations Center Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Dark Theme - Professional Security Operations */
+    --background: 220 13% 9%;
+    --foreground: 220 13% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card System - Sophisticated layering */
+    --card: 220 13% 12%;
+    --card-foreground: 220 13% 95%;
+    --card-header: 220 13% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Interactive Elements */
+    --popover: 220 13% 12%;
+    --popover-foreground: 220 13% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Brand Colors - Cybersecurity Blue Palette */
+    --primary: 217 91% 55%;
+    --primary-foreground: 220 13% 9%;
+    --primary-glow: 217 91% 65%;
+    
+    /* Secondary - Professional Gray */
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 220 13% 85%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Muted Elements */
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 65%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent - Cyan Highlights */
+    --accent: 187 85% 53%;
+    --accent-foreground: 220 13% 9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Alert System */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 13% 95%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 220 13% 9%;
+    --success: 142 71% 45%;
+    --success-foreground: 220 13% 95%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Borders & Inputs */
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 217 91% 55%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Design System Extensions */
+    --radius: 0.75rem;
+    
+    /* Professional Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-background: linear-gradient(180deg, hsl(var(--background)), hsl(220 13% 7%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(220 13% 14%));
+    --gradient-cyber: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    
+    /* Advanced Shadows */
+    --shadow-elegant: 0 10px 40px -10px hsl(var(--primary) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.15);
+    --shadow-card: 0 4px 20px -4px hsl(220 13% 5% / 0.3);
+    --shadow-intense: 0 0 50px hsl(var(--accent) / 0.2);
 
-    --radius: 0.5rem;
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +132,110 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    background: var(--gradient-background);
+  }
+  
+  /* Professional Typography */
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Gradient Utilities */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .bg-gradient-cyber {
+    background: var(--gradient-cyber);
+  }
+  
+  /* Shadow Utilities */
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-intense {
+    box-shadow: var(--shadow-intense);
+  }
+  
+  /* Transition Utilities */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  /* Status Indicators */
+  .status-indicator {
+    @apply relative inline-flex h-3 w-3 rounded-full;
+  }
+  
+  .status-indicator::after {
+    @apply absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping;
+    content: '';
+  }
+  
+  .status-online::after {
+    @apply bg-success;
+  }
+  
+  .status-warning::after {
+    @apply bg-warning;
+  }
+  
+  .status-critical::after {
+    @apply bg-destructive;
+  }
+  
+  /* Cyber Grid Effect */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  /* Data Cards */
+  .metric-card {
+    @apply bg-gradient-card border border-border rounded-lg p-6 shadow-card transition-smooth hover:shadow-glow;
+  }
+  
+  /* Animated Borders */
+  .border-glow {
+    @apply border border-primary/20 relative;
+  }
+  
+  .border-glow::before {
+    @apply absolute inset-0 rounded-lg opacity-0 transition-opacity duration-500;
+    content: '';
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.4), transparent);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    padding: 1px;
+  }
+  
+  .border-glow:hover::before {
+    @apply opacity-100;
   }
 }

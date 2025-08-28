@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -35,6 +36,14 @@ export default {
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
@@ -50,7 +59,8 @@ export default {
 				},
 				card: {
 					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					foreground: 'hsl(var(--card-foreground))',
+					header: 'hsl(var(--card-header))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -62,6 +72,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
+				mono: ['JetBrains Mono', 'monospace']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
